@@ -1,28 +1,37 @@
 // Function to override the default behavior of events
 function enableAllEvents() {
-    document.addEventListener('contextmenu', function(event) {
-      event.stopPropagation();
-    }, true);
-    
-    document.addEventListener('copy', function(event) {
-      event.stopPropagation();
-    }, true);
+  document.addEventListener('contextmenu', function (event) {
+    event.stopPropagation();
+  }, true);
 
-    // document.addEventListener('paste', function(event) {
-    //   event.stopPropagation();
-    // }, true);
-    
-    document.addEventListener('cut', function(event) {
-      event.stopPropagation();
-    }, true);
-    
-    document.addEventListener('selectstart', function(event) {
-      event.stopPropagation();
-    }, true);
-  
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    style.innerHTML = `
+  document.addEventListener('copy', function (event) {
+    event.stopPropagation();
+  }, true);
+
+  // document.addEventListener('paste', function(event) {
+  //   event.stopPropagation();
+  // }, true);
+
+  document.addEventListener('cut', function (event) {
+    event.stopPropagation();
+  }, true);
+
+  document.addEventListener('selectstart', function (event) {
+    event.stopPropagation();
+  }, true);
+
+
+  document.addEventListener('keydown', function (event) {
+    if (event.altKey || event.metaKey) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return false;
+    }
+  }, true);
+
+  const style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = `
       * {
         -webkit-user-select: text !important;
         -moz-user-select: text !important;
@@ -30,9 +39,8 @@ function enableAllEvents() {
         user-select: text !important;
       }
     `;
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 }
-  
-  // Call the function to enable all events
+
+// Call the function to enable all events
 enableAllEvents();
-  
