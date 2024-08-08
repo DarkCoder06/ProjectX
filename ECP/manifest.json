@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Override Copy Paste",
+    "version": "1.0",
+    "description": "Enable copy, paste, cut and right-click on all websites",
+    "permissions": [
+      "activeTab"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  

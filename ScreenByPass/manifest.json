@@ -1,0 +1,20 @@
+{
+  "name": "Screen",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "Solve OLT in 1 min",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Life made easy"
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs"
+  ]
+}
